@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  ╔══════════════════════════════════════════════════════╗
+  ║   BLACK PANTHER — VIBRANIUM PALETTE                  ║
+  ║   bg:       #08080E  obsidian black                  ║
+  ║   surface:  #100C1E  deep purple-tinted card         ║
+  ║   border:   #1F1438  vibranium dark border           ║
+  ║   accent:   #A855F7  vibranium purple                ║
+  ║   accent2:  #7C3AED  deep royal purple               ║
+  ║   text:     #EDE8FF  pale lavender white             ║
+  ║   muted:    #7A6E99  muted purple-grey               ║
+  ║   subtle:   #2E2450  subtle purple                   ║
+  ╚══════════════════════════════════════════════════════╝
+*/
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: #08080E;
+    color: #EDE8FF;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  ::selection {
+    background: rgba(168, 85, 247, 0.35);
+    color: #EDE8FF;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+    background: #08080E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #A855F7;
+    border-radius: 99px;
+  }
+}
+
+@layer components {
+
+  /* ── Full-screen section ── */
+  .fs-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* ── Serif display heading ── */
+  .display-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #EDE8FF;
+  }
+
+  .display-serif-md {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: #EDE8FF;
+  }
+
+  /* ── Section label / mono tag ── */
+  .label-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A855F7;
+  }
+
+  /* ── Vibranium accent bar ── */
+  .accent-bar {
+    display: inline-block;
+    width: 3px;
+    height: 100%;
+    background: #A855F7;
+    border-radius: 2px;
+  }
+
+  /* ── Thin divider ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #1F1438;
+  }
+
+  /* ── Nav link ── */
+  .nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7A6E99;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #A855F7;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover {
+    color: #EDE8FF;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ── Project card row ── */
+  .project-row {
+    border-top: 1px solid #1F1438;
+    padding: 2.5rem 0;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .project-row:last-of-type {
+    border-bottom: 1px solid #1F1438;
+  }
+  .project-row:hover {
+    padding-left: 1.5rem;
+    border-top-color: #A855F7;
+  }
+  .project-row:hover .project-num {
+    color: #A855F7;
+  }
+  .project-row:hover .project-title {
+    color: #EDE8FF;
+  }
+  .project-row:hover .project-arrow {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+    color: #A855F7;
+  }
+
+  .project-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #2E2450;
+    transition: color 0.4s ease;
+    letter-spacing: 0.12em;
+  }
+
+  .project-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #3D3060;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1.1;
+  }
+
+  .project-arrow {
+    font-size: 1.4rem;
+    transform: translateX(-12px) rotate(-45deg);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ── Skill pill ── */
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid #1F1438;
+    border-radius: 99px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: #7A6E99;
+    transition: all 0.3s ease;
+  }
+  .skill-pill:hover {
+    border-color: #A855F7;
+    color: #A855F7;
+    background: rgba(168, 85, 247, 0.06);
+  }
+
+  /* ── Competency card ── */
+  .competency-card {
+    border: 1px solid #1F1438;
+    padding: 2rem;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    background: #100C1E;
+  }
+  .competency-card:hover {
+    border-color: #A855F7;
+    background: rgba(168, 85, 247, 0.06);
+  }
+  .competency-card:hover .card-icon {
+    color: #A855F7;
+  }
+
+  /* ── Noise overlay ── */
+  .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  /* ── Vibranium glow orb ── */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  /* ── CTA Button ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: #A855F7;
+    color: #08080E;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: #c084fc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.45);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    border: 1px solid #2E2450;
+    color: #7A6E99;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    border-color: #A855F7;
+    color: #A855F7;
+  }
+
+  /* ── Edu / cert card ── */
+  .edu-card {
+    border-left: 2px solid #A855F7;
+    padding-left: 1.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  .edu-card:hover {
+    padding-left: 2rem;
+    border-left-width: 3px;
+  }
+
+  /* ── Contact link ── */
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #1F1438;
+    color: #7A6E99;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .contact-link:hover {
+    color: #EDE8FF;
+    padding-left: 0.5rem;
+  }
+  .contact-link:hover .contact-icon {
+    color: #A855F7;
+  }
+
+  /* ── Achievement badge ── */
+  .achievement-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #1F1438;
+    border-radius: 4px;
+    background: #100C1E;
+    transition: all 0.3s ease;
+  }
+  .achievement-badge:hover {
+    border-color: #A855F7;
+    background: rgba(168, 85, 247, 0.06);
+  }
+}
+
+@layer utilities {
+  .text-muted    { color: #7A6E99; }
+  .text-subtle   { color: #2E2450; }
+  .text-vibranium { color: #A855F7; }
+  .bg-surface    { background: #100C1E; }
+  .border-subtle { border-color: #1F1438; }
+  .font-serif    { font-family: 'Playfair Display', Georgia, serif; }
+  .font-mono     { font-family: 'JetBrains Mono', monospace; }
+}
