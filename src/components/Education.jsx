@@ -31,6 +31,7 @@ const training = [
     detail: 'LLM Architectures · RAG Workflows · Prompt Engineering',
     type: 'training',
     highlight: true,
+    certLink: 'https://drive.google.com/file/d/1-cm47o4Jl1jZSevBSIcylb2QeaCcWTCf/view?usp=drivesdk',
   },
 ];
 
@@ -87,7 +88,7 @@ export default function Education() {
             <motion.p {...fadeUp(0.3)} className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-[0.2em] uppercase mt-12 mb-6">
               Key Training
             </motion.p>
-            {training.map(({ title, org, detail }) => (
+            {training.map(({ title, org, detail, certLink }) => (
               <motion.div
                 key={title}
                 {...fadeUp(0.35)}
@@ -103,7 +104,18 @@ export default function Education() {
                   </div>
                   <h3 className="font-serif text-3xl font-bold text-[#ffffff] mb-1 drop-shadow-md">{title}</h3>
                   <p className="text-[#9D8DF1] text-sm font-medium mb-3">{org}</p>
-                  <p className="text-[#777] text-sm">{detail}</p>
+                  <p className="text-[#777] text-sm mb-5">{detail}</p>
+                  
+                  {certLink && (
+                    <a 
+                      href={certLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-mono text-[0.65rem] text-[#9D8DF1] border border-[#9D8DF1]/50 bg-[rgba(157,141,241,0.05)] px-4 py-2 rounded-sm shadow-[0_0_10px_rgba(157,141,241,0.4)] hover:bg-[#9D8DF1] hover:text-[#08080E] transition-colors"
+                    >
+                      View Certificate <span>↗</span>
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -122,7 +134,7 @@ export default function Education() {
                   className="relative group h-[104px] w-full [perspective:1000px] cursor-default"
                 >
                   <div className="w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] relative">
-                    
+
                     {/* FRONT */}
                     <div className="absolute inset-0 border border-[#2C2C2C] bg-[#1A1A1A] rounded-sm p-5 [backface-visibility:hidden] flex items-center">
                       <div className="flex items-center gap-3 w-full">
@@ -138,21 +150,21 @@ export default function Education() {
 
                     {/* BACK */}
                     <div className="absolute inset-0 border border-[#9D8DF1]/50 bg-[#1A1A1A] rounded-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center overflow-hidden">
-                       {/* Subtle background abstract for 'preview' */}
-                       <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
-                         <svg className="w-24 h-24 text-[#9D8DF1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                         </svg>
-                       </div>
-                       
-                       <a 
-                         href={link} 
-                         target="_blank" 
-                         rel="noopener noreferrer" 
-                         className="relative z-10 px-5 py-2 border border-[#9D8DF1] text-[#9D8DF1] text-xs uppercase tracking-widest font-mono hover:bg-[#9D8DF1] hover:text-[#08080E] transition-colors rounded-sm shadow-[0_0_15px_rgba(157,141,241,0.3)]"
-                       >
-                         View Certificate
-                       </a>
+                      {/* Subtle background abstract for 'preview' */}
+                      <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
+                        <svg className="w-24 h-24 text-[#9D8DF1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+
+                      <a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 px-5 py-2 border border-[#9D8DF1] text-[#9D8DF1] text-xs uppercase tracking-widest font-mono hover:bg-[#9D8DF1] hover:text-[#08080E] transition-colors rounded-sm shadow-[0_0_15px_rgba(157,141,241,0.3)]"
+                      >
+                        View Certificate
+                      </a>
                     </div>
 
                   </div>
