@@ -92,7 +92,7 @@ export default function About() {
                       {icon}
                     </span>
                     <div>
-                      <h3 className="text-[#F5F5F0] text-sm font-semibold mb-1">{title}</h3>
+                      <h3 className="text-[#ffffff] text-lg font-semibold mb-1 drop-shadow-sm">{title}</h3>
                       <p className="text-[#666] text-xs leading-relaxed">{desc}</p>
                     </div>
                   </div>

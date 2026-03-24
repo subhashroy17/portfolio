@@ -71,7 +71,7 @@ export default function Education() {
                 <motion.div key={degree} {...fadeUp(0.1 + i * 0.1)} className="edu-card">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1">
                     <div>
-                      <h3 className="font-serif text-xl font-bold text-[#F5F5F0] mb-1">{degree}</h3>
+                      <h3 className="font-serif text-2xl font-bold text-[#ffffff] mb-1 drop-shadow-sm">{degree}</h3>
                       <p className="text-[#aaa] text-sm">{institution}</p>
                     </div>
                     <div className="text-right flex-shrink-0">
@@ -101,7 +101,7 @@ export default function Education() {
                       Featured
                     </span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold text-[#F5F5F0] mb-1">{title}</h3>
+                  <h3 className="font-serif text-3xl font-bold text-[#ffffff] mb-1 drop-shadow-md">{title}</h3>
                   <p className="text-[#9D8DF1] text-sm font-medium mb-3">{org}</p>
                   <p className="text-[#777] text-sm">{detail}</p>
                 </div>
@@ -129,7 +129,7 @@ export default function Education() {
                       <span className="text-[#9D8DF1] text-xs">✓</span>
                     </div>
                     <div>
-                      <h4 className="text-[#F5F5F0] text-sm font-semibold mb-0.5">{title}</h4>
+                      <h4 className="text-[#ffffff] text-lg font-semibold mb-0.5 drop-shadow-sm">{title}</h4>
                       <p className="font-mono text-[0.6rem] text-[#666] tracking-wider">{org}</p>
                     </div>
                   </div>

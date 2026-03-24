@@ -75,30 +75,33 @@
   /* ── Serif display heading ── */
   .display-serif {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-size: clamp(4rem, 9vw, 9.5rem);
     font-weight: 900;
     line-height: 0.95;
     letter-spacing: -0.02em;
-    color: #EDE8FF;
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
   }
 
   .display-serif-md {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.015em;
-    color: #EDE8FF;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(168, 85, 247, 0.15);
   }
 
   /* ── Section label / mono tag ── */
   .label-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #A855F7;
+    color: #C084FC;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
   }
 
   /* ── Vibranium accent bar ── */
@@ -170,7 +173,8 @@
   }
 
   .project-row:hover .project-title {
-    color: #EDE8FF;
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
   }
 
   .project-row:hover .project-arrow {
@@ -189,11 +193,11 @@
 
   .project-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     color: #3D3060;
-    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1.1;
   }
 
