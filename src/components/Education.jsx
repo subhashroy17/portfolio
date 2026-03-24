@@ -12,14 +12,14 @@ const education = [
     degree: 'B.Tech in Computer Science',
     institution: 'Lovely Professional University',
     detail: 'CGPA: 7.96',
-    period: '2022 – 2026',
+    period: '2023 – 2027',
     type: 'education',
   },
   {
     degree: 'Intermediate (PCM)',
     institution: 'Narayana Group of Institutions',
     detail: 'Score: 96%',
-    period: '2020 – 2022',
+    period: '2021 – 2023',
     type: 'education',
   },
 ];
@@ -116,24 +116,47 @@ export default function Education() {
             </motion.p>
             <div className="flex flex-col gap-4">
               {certs.map(({ title, org, link }, i) => (
-                <motion.a
+                <motion.div
                   key={title}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   {...fadeUp(0.15 + i * 0.1)}
-                  className="border border-[#2C2C2C] bg-[#1A1A1A] rounded-sm p-5 hover:border-[#9D8DF1] transition-all duration-300 group block cursor-pointer"
+                  className="relative group h-[104px] w-full [perspective:1000px] cursor-default"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-sm bg-[rgba(157,141,241,0.1)] border border-[rgba(157,141,241,0.2)] flex items-center justify-center flex-shrink-0 group-hover:bg-[rgba(157,141,241,0.2)] transition-colors">
-                      <span className="text-[#9D8DF1] text-xs">✓</span>
+                  <div className="w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] relative">
+                    
+                    {/* FRONT */}
+                    <div className="absolute inset-0 border border-[#2C2C2C] bg-[#1A1A1A] rounded-sm p-5 [backface-visibility:hidden] flex items-center">
+                      <div className="flex items-center gap-3 w-full">
+                        <div className="w-8 h-8 rounded-sm bg-[rgba(157,141,241,0.1)] border border-[rgba(157,141,241,0.2)] flex items-center justify-center flex-shrink-0 transition-colors">
+                          <span className="text-[#9D8DF1] text-xs">✓</span>
+                        </div>
+                        <div>
+                          <h4 className="text-[#ffffff] text-lg font-semibold mb-0.5 drop-shadow-sm">{title}</h4>
+                          <p className="font-mono text-[0.6rem] text-[#666] tracking-wider">{org}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-[#ffffff] text-lg font-semibold mb-0.5 drop-shadow-sm">{title}</h4>
-                      <p className="font-mono text-[0.6rem] text-[#666] tracking-wider">{org}</p>
+
+                    {/* BACK */}
+                    <div className="absolute inset-0 border border-[#9D8DF1]/50 bg-[#1A1A1A] rounded-sm [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center items-center overflow-hidden">
+                       {/* Subtle background abstract for 'preview' */}
+                       <div className="absolute inset-0 opacity-[0.03] flex items-center justify-center pointer-events-none">
+                         <svg className="w-24 h-24 text-[#9D8DF1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                         </svg>
+                       </div>
+                       
+                       <a 
+                         href={link} 
+                         target="_blank" 
+                         rel="noopener noreferrer" 
+                         className="relative z-10 px-5 py-2 border border-[#9D8DF1] text-[#9D8DF1] text-xs uppercase tracking-widest font-mono hover:bg-[#9D8DF1] hover:text-[#08080E] transition-colors rounded-sm shadow-[0_0_15px_rgba(157,141,241,0.3)]"
+                       >
+                         View Certificate
+                       </a>
                     </div>
+
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
 

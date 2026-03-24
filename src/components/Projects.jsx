@@ -18,7 +18,7 @@ const projects = [
       'K-Means + Silhouette analysis for optimal cluster count',
       'Actionable behavioral cluster profiles for marketing teams',
     ],
-    year: '2024',
+    year: '2025',
     category: 'Machine Learning',
   },
   {
@@ -37,7 +37,7 @@ const projects = [
       'Multi-source aggregation with deduplication',
       'LLM prompt engineering for concise, accurate outputs',
     ],
-    year: '2024',
+    year: '2025',
     category: 'AI / GenAI',
   },
   {
@@ -56,7 +56,7 @@ const projects = [
       'Feature engineering from raw sensor streams',
       'Visualization dashboard for pollutant trends',
     ],
-    year: '2024',
+    year: '2025',
     category: 'ML / Data Science',
   },
 ];
