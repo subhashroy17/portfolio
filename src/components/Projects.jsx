@@ -80,7 +80,7 @@ export default function Projects({ onSelectProject }) {
             <span className="label-tag">02 — Featured Works</span>
             <span className="flex-1 h-px bg-[#2C2C2C] w-16 hidden md:block" />
           </div>
-          <span className="font-mono text-[0.65rem] text-[#444] tracking-widest">
+          <span className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-widest drop-shadow-[0_0_8px_rgba(157,141,241,0.8)] font-semibold">
             {projects.length} Projects
           </span>
         </motion.div>
@@ -108,7 +108,7 @@ export default function Projects({ onSelectProject }) {
                   </span>
                   <div className="min-w-0">
                     <h3 className="project-title truncate">{project.title}</h3>
-                    <p className="font-mono text-[0.65rem] text-[#555] tracking-wider mt-1">
+                    <p className={`font-mono text-[0.7rem] tracking-wider mt-1 transition-all duration-300 ${hovered === project.id ? 'text-[#B8AAFA] drop-shadow-[0_0_8px_rgba(184,170,250,0.6)]' : 'text-[#555]'}`}>
                       {project.short}
                     </p>
                   </div>
@@ -118,7 +118,7 @@ export default function Projects({ onSelectProject }) {
                 <div className="flex items-center gap-4 flex-shrink-0">
                   <div className="hidden md:flex gap-2 flex-wrap justify-end">
                     {project.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="font-mono text-[0.6rem] text-[#555] border border-[#2C2C2C] px-2 py-0.5 rounded-sm">
+                      <span key={tag} className={`font-mono text-xs border px-2.5 py-1 rounded-sm transition-all duration-300 ${hovered === project.id ? 'text-[#9D8DF1] border-[#9D8DF1]/50 bg-[rgba(157,141,241,0.05)] shadow-[0_0_10px_rgba(157,141,241,0.4)]' : 'text-[#555] border-[#2C2C2C] bg-transparent'}`}>
                         {tag}
                       </span>
                     ))}

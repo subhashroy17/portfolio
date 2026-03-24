@@ -100,7 +100,7 @@ export default function Contact() {
                   {icon}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-mono text-[0.6rem] tracking-widest uppercase text-[#555] mb-0.5">{label}</p>
+                  <p className="font-mono text-xs font-semibold tracking-widest uppercase text-[#9D8DF1] mb-1">{label}</p>
                   <p className="text-[#aaa] text-sm truncate group-hover:text-[#F5F5F0]">{value}</p>
                 </div>
                 <span className="font-mono text-[#444] text-xs flex-shrink-0 transition-colors duration-300">
@@ -118,11 +118,11 @@ export default function Contact() {
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#9D8DF1]" />
-            <span className="font-mono text-[0.6rem] text-[#444] tracking-widest uppercase">
+            <span className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-widest uppercase font-medium">
               Subhash Verru — AI & Software Engineer
             </span>
           </div>
-          <p className="font-mono text-[0.6rem] text-[#333] tracking-widest">
+          <p className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-widest">
             © {new Date().getFullYear()} · Built with React & Vite
           </p>
         </motion.div>
