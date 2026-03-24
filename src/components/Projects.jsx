@@ -162,7 +162,7 @@ export default function Projects({ onSelectProject }) {
             className="btn-outline"
           >
             <span>View All on GitHub</span>
-            <span className="text-[#9D8DF1]">↗</span>
+            <span>↗</span>
           </a>
         </motion.div>
       </div>

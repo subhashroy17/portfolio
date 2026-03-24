@@ -39,11 +39,13 @@ const certs = [
     title: 'Cloud Computing',
     org: 'NPTEL',
     type: 'cert',
+    link: 'https://drive.google.com/file/d/19R2cnVBr54FrjhNltFurL7hjuM2EgjV3/view?usp=drivesdk',
   },
   {
     title: 'Data Structures & Algorithms',
-    org: 'I Am Neo',
+    org: 'Apna College',
     type: 'cert',
+    link: 'https://drive.google.com/file/d/1459IZ-p6bWEbb1DrmGIufC87p7TVFve5/view?usp=drivesdk',
   },
 ];
 
@@ -113,11 +115,14 @@ export default function Education() {
               Certifications
             </motion.p>
             <div className="flex flex-col gap-4">
-              {certs.map(({ title, org }, i) => (
-                <motion.div
+              {certs.map(({ title, org, link }, i) => (
+                <motion.a
                   key={title}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   {...fadeUp(0.15 + i * 0.1)}
-                  className="border border-[#2C2C2C] bg-[#1A1A1A] rounded-sm p-5 hover:border-[#9D8DF1] transition-all duration-300 group"
+                  className="border border-[#2C2C2C] bg-[#1A1A1A] rounded-sm p-5 hover:border-[#9D8DF1] transition-all duration-300 group block cursor-pointer"
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-sm bg-[rgba(157,141,241,0.1)] border border-[rgba(157,141,241,0.2)] flex items-center justify-center flex-shrink-0 group-hover:bg-[rgba(157,141,241,0.2)] transition-colors">
@@ -128,7 +133,7 @@ export default function Education() {
                       <p className="font-mono text-[0.6rem] text-[#666] tracking-wider">{org}</p>
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
 

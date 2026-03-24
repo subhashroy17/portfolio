@@ -106,7 +106,7 @@ export default function ProjectDetail({ project, onClose }) {
               href="https://github.com/subhashroy17"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-sm"
+              className="btn-primary"
             >
               View on GitHub <span>↗</span>
             </a>
