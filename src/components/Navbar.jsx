@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const links = [
-  { label: 'About',     href: '#about' },
-  { label: 'Projects',  href: '#projects' },
-  { label: 'Skills',    href: '#skills' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact',   href: '#contact' },
+  { label: 'About',          href: '#about' },
+  { label: 'Projects',       href: '#projects' },
+  { label: 'Skills',         href: '#skills' },
+  { label: 'Education',      href: '#education' },
+  { label: 'Certifications', href: '#certificates' },
+  { label: 'Contact',        href: '#contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onHireMe }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -75,13 +76,13 @@ export default function Navbar() {
         </ul>
 
         {/* Hire Me pill button */}
-        <a
-          href="mailto:subhashverru17@gmail.com"
-          className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(157,141,241,0.12)] border border-[rgba(157,141,241,0.25)] text-[#9D8DF1] font-mono text-[0.62rem] tracking-[0.1em] uppercase hover:bg-[#9D8DF1] hover:text-[#1A1A1A] hover:border-[#9D8DF1] transition-all duration-300 flex-shrink-0"
+        <button
+          onClick={onHireMe}
+          className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(157,141,241,0.12)] border border-[rgba(157,141,241,0.25)] text-[#9D8DF1] font-mono text-[0.62rem] tracking-[0.1em] uppercase hover:bg-[#9D8DF1] hover:text-[#1A1A1A] hover:border-[#9D8DF1] transition-all duration-300 flex-shrink-0 cursor-pointer"
         >
           <span className="w-1 h-1 rounded-full bg-current" />
           Hire Me
-        </a>
+        </button>
 
         {/* Mobile hamburger */}
         <button
@@ -124,12 +125,12 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-1 border-t border-[#2C2C2C]">
-                <a
-                  href="mailto:subhashverru17@gmail.com"
-                  className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full border border-[rgba(157,141,241,0.3)] text-[#9D8DF1] font-mono text-[0.65rem] tracking-[0.1em] uppercase"
+                <button
+                  onClick={() => { setOpen(false); onHireMe(); }}
+                  className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full border border-[rgba(157,141,241,0.3)] text-[#9D8DF1] font-mono text-[0.65rem] tracking-[0.1em] uppercase cursor-pointer"
                 >
                   Hire Me
-                </a>
+                </button>
               </li>
             </ul>
           </motion.div>

@@ -62,9 +62,7 @@ export default function About() {
             {/* Quick stats */}
             <motion.div {...fadeUp(0.3)} className="grid grid-cols-2 gap-4">
               {[
-                { num: '7.96', label: 'CGPA at LPU' },
-                { num: '96%', label: 'Intermediate Score' },
-                { num: 'Top 10', label: 'Code-A-Hunt (2,500+)' },
+                { num: '10+', label: 'Tech Skills' },
                 { num: '100+', label: 'DSA Problems' },
               ].map(({ num, label }) => (
                 <div key={label} className="border border-[#2C2C2C] rounded-sm p-4 bg-[#1f1f1f] hover:border-[#9D8DF1] transition-colors duration-300">

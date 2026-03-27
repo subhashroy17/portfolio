@@ -38,7 +38,7 @@ const contactLinks = [
   },
 ];
 
-export default function Contact() {
+export default function Contact({ onEmailClick }) {
   return (
     <section id="contact" className="relative py-28 md:py-36 bg-[#111111]">
       <div className="divider" />
@@ -52,7 +52,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
         {/* Header */}
         <motion.div {...fadeUp(0)} className="flex items-center gap-4 mb-16">
-          <span className="label-tag">05 — Contact</span>
+          <span className="label-tag">06 — Contact</span>
           <span className="flex-1 h-px bg-[#2C2C2C]" />
         </motion.div>
 
@@ -68,9 +68,9 @@ export default function Contact() {
               I'm always open to discussing interesting AI challenges, research opportunities, or new projects. Drop me a message — I respond promptly.
             </motion.p>
             <motion.div {...fadeUp(0.25)}>
-              <a href="mailto:subhashverru17@gmail.com" className="btn-primary inline-flex">
+              <button onClick={onEmailClick} className="btn-primary inline-flex cursor-pointer">
                 Send Me an Email <span>→</span>
-              </a>
+              </button>
             </motion.div>
 
             {/* Status badge */}
