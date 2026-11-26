@@ -140,7 +140,7 @@ export default function Hero() {
             transition={{ duration: 1.1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="flex justify-center items-center"
           >
-            <div className="relative" style={{ width: '300px', height: '500px' }}>
+            <div className="relative w-[264px] max-w-full aspect-[3/5]">
 
               {/* Soft lavender glow behind the portrait */}
               <div
