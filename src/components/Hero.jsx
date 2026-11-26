@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const lineVariants = {
   hidden: { y: '110%', opacity: 0 },
@@ -11,15 +10,9 @@ const containerVariants = {
 };
 
 export default function Hero() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '-14%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
   return (
     <section
       id="hero"
-      ref={containerRef}
       className="relative min-h-screen overflow-hidden bg-[#1A1A1A] flex items-center"
     >
       {/* Ambient lavender glow */}
@@ -38,58 +31,63 @@ export default function Hero() {
         <rect width="100%" height="100%" fill="url(#dots)" />
       </svg>
 
-      <motion.div
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-12"
-        style={{ y, opacity }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,21rem)] gap-10 lg:gap-14 items-center min-h-[calc(100vh-10rem)]">
-
-          <div className="min-w-0">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-10 pt-28 md:px-12">
+        <div className="grid items-stretch gap-7 min-[540px]:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] sm:gap-9 lg:gap-14">
+          <div className="flex min-w-0 flex-col justify-center">
             {/* Identity label */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex items-center gap-3 mb-5 sm:mb-8"
+              className="flex items-center gap-3 mb-4 sm:mb-6"
             >
               <span className="w-5 h-px bg-[#9D8DF1]" />
               <span className="label-tag">AI & Software Engineer</span>
             </motion.div>
 
-            <div className="mb-6 flex items-center gap-3 sm:mb-8 sm:gap-6 lg:gap-8">
-              <motion.h1
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                aria-label="Subhash Verru"
-              >
-                {['Subhash', 'Verru.'].map((word, i) => (
-                  <span key={word} className="block overflow-hidden leading-none">
-                    <motion.span
-                      variants={lineVariants}
-                      className="block font-serif font-black tracking-tight"
-                      style={{
-                        fontSize: 'clamp(2.375rem, 7.4vw, 6.75rem)',
-                        lineHeight: 1,
-                        color: i === 1 ? '#9D8DF1' : '#F5F5F0',
-                        fontStyle: i === 1 ? 'italic' : 'normal',
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  </span>
-                ))}
-              </motion.h1>
-              <motion.img
-                src="/port_pic.jpeg"
-                alt="Subhash Verru"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="aspect-[4/5] w-[84px] shrink-0 rounded-lg border-2 border-[#9D8DF1]/70 object-cover object-top shadow-[0_0_24px_rgba(157,141,241,0.2)] sm:w-[112px] lg:w-[140px]"
-              />
-            </div>
+            <motion.h1
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              aria-label="Subhash Verru"
+              className="mb-5 sm:mb-7"
+            >
+              {['Subhash', 'Verru.'].map((word, i) => (
+                <span key={word} className="block overflow-hidden leading-none">
+                  <motion.span
+                    variants={lineVariants}
+                    className="block font-serif font-black tracking-tight"
+                    style={{
+                      fontSize: 'clamp(2.875rem, 8.5vw, 7rem)',
+                      lineHeight: 1,
+                      color: i === 1 ? '#9D8DF1' : '#F5F5F0',
+                      fontStyle: i === 1 ? 'italic' : 'normal',
+                      fontFamily: "'Playfair Display', Georgia, serif",
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[#bbb] text-base md:text-lg leading-relaxed mb-3 max-w-md"
+            >
+              I develop software with a focus on machine learning and natural language processing.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.95 }}
+              className="text-[#666] text-sm leading-relaxed mb-6 max-w-md"
+            >
+              B.Tech candidate at Lovely Professional University · Computer Science and Engineering.
+            </motion.p>
 
             {/* Social Icons */}
             <motion.div
@@ -131,92 +129,84 @@ export default function Hero() {
                   View CV
                 </span>
               </a>
-
             </motion.div>
           </div>
 
-          {/* ══ RIGHT: TAGLINE + ACHIEVEMENTS + CTAs ══ */}
-          <div className="flex flex-col justify-center">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[#bbb] text-base md:text-lg leading-relaxed mb-3 max-w-xs"
-            >
-              I develop software with a focus on machine learning and natural language processing.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.95 }}
-              className="text-[#666] text-sm leading-relaxed mb-8 max-w-xs"
-            >
-              B.Tech candidate at Lovely Professional University · Computer Science and Engineering.
-            </motion.p>
-
-            {/* Achievement micro-cards */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.05 }}
-              className="flex flex-col gap-2.5 mb-8 max-w-xs"
-            >
-              {[
-                { icon: '🏆', title: 'Top 10 — Code-A-Hunt', sub: 'Out of 2,500+ participants · Feb 2024' },
-                { icon: '⚡', title: '100+ DSA Problems', sub: 'LeetCode · Feb 2026' },
-              ].map(({ icon, title, sub }) => (
-                <div key={title} className="flex items-center gap-3 px-4 py-3 border border-[#2C2C2C] rounded-sm bg-[#1f1f1f] hover:border-[#9D8DF1] transition-colors duration-300">
-                  <span className="text-base">{icon}</span>
-                  <div>
-                    <p className="text-[#F5F5F0] text-xs font-semibold leading-none mb-0.5">{title}</p>
-                    <p className="font-mono text-[0.6rem] text-[#555]">{sub}</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-3 max-w-xs"
-            >
-              <a
-                href="#projects"
-                onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="btn-primary justify-center"
-              >
-                View My Work <span>→</span>
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="btn-outline justify-center"
-              >
-                Get In Touch
-              </a>
-            </motion.div>
-
-            {/* Scroll indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.2, duration: 1 }}
-              className="flex items-center gap-3 mt-10"
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-px h-8 bg-gradient-to-b from-[#9D8DF1] to-transparent"
-              />
-              <span className="label-tag">Scroll to explore</span>
-            </motion.div>
-          </div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            className="relative min-h-[18rem] overflow-hidden rounded-lg border-2 border-[#9D8DF1]/70 shadow-[0_0_24px_rgba(157,141,241,0.2)] sm:min-h-[22rem] lg:min-h-[27rem]"
+          >
+            <img
+              src="/port_pic.jpeg"
+              alt="Subhash Verru"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          </motion.div>
         </div>
-      </motion.div>
+
+        <div className="mt-7 grid gap-3 sm:mt-9 lg:mt-10">
+          {/* Achievement micro-cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.05 }}
+            className="grid grid-cols-1 gap-3 min-[540px]:grid-cols-2"
+          >
+            {[
+              { icon: '🏆', title: 'Top 10 — Code-A-Hunt', sub: 'Out of 2,500+ participants · Feb 2024' },
+              { icon: '⚡', title: '100+ DSA Problems', sub: 'LeetCode · Feb 2026' },
+            ].map(({ icon, title, sub }) => (
+              <div key={title} className="flex items-center gap-3 px-4 py-3 border border-[#2C2C2C] rounded-sm bg-[#1f1f1f] hover:border-[#9D8DF1] transition-colors duration-300">
+                <span className="text-base">{icon}</span>
+                <div>
+                  <p className="text-[#F5F5F0] text-xs font-semibold leading-none mb-0.5">{title}</p>
+                  <p className="font-mono text-[0.6rem] text-[#555]">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="grid grid-cols-1 gap-3 min-[540px]:grid-cols-2"
+          >
+            <a
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="btn-primary justify-center"
+            >
+              View My Work <span>→</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="btn-outline justify-center"
+            >
+              Get In Touch
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.2, duration: 1 }}
+          className="flex items-center gap-3 mt-7"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-px h-8 bg-gradient-to-b from-[#9D8DF1] to-transparent"
+          />
+          <span className="label-tag">Scroll to explore</span>
+        </motion.div>
+
+      </div>
     </section>
   );
 }
