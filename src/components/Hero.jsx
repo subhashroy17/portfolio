@@ -77,7 +77,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-[#bbb] text-base md:text-lg leading-relaxed mb-3 max-w-md"
             >
-              I develop software with a focus on machine learning and natural language processing.
+              I’m looking for AI and software engineering internships focused on machine learning and natural language processing.
             </motion.p>
 
             <motion.p
@@ -89,13 +89,25 @@ export default function Hero() {
               B.Tech candidate at Lovely Professional University · Computer Science and Engineering.
             </motion.p>
 
-            {/* Social Icons */}
+            {/* CV and social links */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.1 }}
-              className="flex items-center gap-6"
+              className="flex flex-wrap items-center gap-4 sm:gap-6"
             >
+              <a
+                href="https://drive.google.com/file/d/1QEqXaOhJbZNXeXRUdaKG6v9WEu-fW61K/view?usp=drivesdk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#9D8DF1]/60 bg-[#9D8DF1]/10 px-4 py-2.5 text-sm font-semibold text-[#E3DBFF] transition-colors hover:bg-[#9D8DF1] hover:text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9D8DF1]"
+              >
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6M8 13h8M8 17h6" />
+                </svg>
+                View CV
+              </a>
               {/* GitHub */}
               <a href="https://github.com/subhashroy17" target="_blank" rel="noopener noreferrer"
                 className="text-[#666] hover:text-[#9D8DF1] transition-colors duration-300">
@@ -109,25 +121,6 @@ export default function Hero() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
-              </a>
-              {/* View CV */}
-              <a
-                href="https://drive.google.com/file/d/1QEqXaOhJbZNXeXRUdaKG6v9WEu-fW61K/view?usp=drivesdk"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="View CV"
-                className="relative group text-[#666] hover:text-[#9D8DF1] transition-colors duration-300"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="12" y1="11" x2="12" y2="17" />
-                  <polyline points="9 14 12 17 15 14" />
-                </svg>
-                {/* Tooltip */}
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[0.6rem] font-mono tracking-wide bg-[#A855F7] text-[#08080E] opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-                  View CV
-                </span>
               </a>
             </motion.div>
           </div>
