@@ -112,7 +112,7 @@ export default function Hero() {
               </a>
               {/* View CV */}
               <a
-                href="https://drive.google.com/file/d/1IPXdjKDMBkQ9yLmVHj0EQ3goO0AUSF2B/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1QEqXaOhJbZNXeXRUdaKG6v9WEu-fW61K/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="View CV"
