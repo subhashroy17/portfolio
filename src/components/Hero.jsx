@@ -97,7 +97,7 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-4 sm:gap-6"
             >
               <a
-                href="https://drive.google.com/file/d/1QEqXaOhJbZNXeXRUdaKG6v9WEu-fW61K/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/11N4I5LMxb8fRip209hWDeXcssSjdIa-q/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-[#9D8DF1]/60 bg-[#9D8DF1]/10 px-4 py-2.5 text-sm font-semibold text-[#E3DBFF] transition-colors hover:bg-[#9D8DF1] hover:text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9D8DF1]"

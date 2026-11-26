@@ -9,6 +9,12 @@ const fadeUp = (delay = 0) => ({
 
 const certs = [
   {
+    org: 'Oracle',
+    title: 'Oracle Cloud Infrastructure – AI Foundations Associate',
+    date: 'Feb 2026',
+    link: 'https://drive.google.com/file/d/1UtUlBx8V0vpwI1obtlcqcOy6iuH5Zsus/view?usp=drivesdk',
+  },
+  {
     org: 'NPTEL',
     title: 'Cloud Computing',
     date: 'Apr 2025',
