@@ -3,13 +3,43 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
   {
+    id: 2,
+    title: 'AI News Intelligence Agent',
+    short: 'News summarization · Semantic deduplication · RAG',
+    tags: ['Python', 'PyTorch', 'Hugging Face', 'Sentence Transformers', 'PEFT (LoRA)', 'FAISS', 'Streamlit'],
+    github: 'https://github.com/subhashroy17/AI_NEWS-AGENT',
+    overview:
+      'A Streamlit news platform that summarizes coverage across multiple sources and lets readers ask questions about retrieved articles.',
+    highlights: [
+      'Fine-tuned open-source Hugging Face language models with PEFT and LoRA for structured, domain-specific news summaries.',
+      'Used Sentence Transformers and cosine similarity to detect duplicates and cluster related coverage across sources.',
+      'Built a retrieval-augmented generation pipeline with FAISS vector search to ground interactive answers in retrieved news articles.',
+    ],
+    year: 'Oct 2025 – Jan 2026',
+    category: 'AI / GenAI',
+  },
+  {
+    id: 4,
+    title: 'Collective Voice',
+    short: 'Live meeting Q&A and polls · Semantic question grouping',
+    tags: ['Next.js', 'FastAPI', 'Supabase PostgreSQL', 'WebSockets', 'Python', 'PyTorch', 'Sentence Transformers', 'Tailwind CSS', 'TypeScript'],
+    github: 'https://github.com/subhashroy17/CollectiveVoice',
+    overview:
+      'A real-time meeting Q&A and polling platform with live voting, guest access, and data exports.',
+    highlights: [
+      'Built the meeting experience with Next.js, WebSockets, and Supabase PostgreSQL.',
+      'Integrated a FastAPI service that uses PyTorch and the all-MiniLM-L6-v2 Sentence Transformers model to embed and group questions with cosine similarity and semantic ranking.',
+      'Used Supabase Cron for batch scoring and room transitions, decoupling inference to keep presentation updates under one second.',
+    ],
+    year: 'Jun 2025 – Aug 2025',
+    category: 'Full-Stack / NLP',
+  },
+  {
     id: 1,
-    num: '01',
-    total: '03',
     title: 'Advanced Customer Segmentation',
     short: 'Unsupervised ML pipeline · Scikit-Learn · PCA',
     tags: ['Python', 'Scikit-Learn', 'PCA', 'K-Means', 'Pandas'],
-    accent: '#9D8DF1',
+    github: 'https://github.com/subhashroy17/Advanced-Customer-Segmentation',
     overview:
       'Built an end-to-end unsupervised machine learning pipeline to segment customers based on raw behavioral data. Leveraged PCA for dimensionality reduction, reducing training time significantly while increasing model accuracy.',
     highlights: [
@@ -22,32 +52,11 @@ const projects = [
     category: 'Machine Learning',
   },
   {
-    id: 2,
-    num: '02',
-    total: '03',
-    title: 'AI News Agent',
-    short: 'GenAI · Live data retrieval · Intelligent summarization',
-    tags: ['Python', 'LangChain', 'RAG', 'GenAI', 'NLP'],
-    accent: '#9D8DF1',
-    overview:
-      'An autonomous AI agent that retrieves live news data and produces intelligent, context-aware summaries using Retrieval Augmented Generation (RAG) frameworks and large language model integrations.',
-    highlights: [
-      'Real-time web data retrieval and indexing',
-      'RAG pipeline for grounded, hallucination-free summaries',
-      'Multi-source aggregation with deduplication',
-      'LLM prompt engineering for concise, accurate outputs',
-    ],
-    year: '2025',
-    category: 'AI / GenAI',
-  },
-  {
     id: 3,
-    num: '03',
-    total: '03',
     title: 'Pollution Level Categorization',
     short: 'KNN classification · Air quality sensor data',
     tags: ['Python', 'KNN', 'Scikit-Learn', 'Matplotlib', 'Data Analysis'],
-    accent: '#9D8DF1',
+    github: 'https://github.com/subhashroy17/Pollution-level-categorization-using-K-Nearest-Neighbors',
     overview:
       'A classification system that categorizes air quality levels—from Good to Hazardous—using K-Nearest Neighbour algorithms applied to multi-sensor environmental data.',
     highlights: [
@@ -59,7 +68,11 @@ const projects = [
     year: '2025',
     category: 'ML / Data Science',
   },
-];
+].map((project, index, allProjects) => ({
+  ...project,
+  num: String(index + 1).padStart(2, '0'),
+  total: String(allProjects.length).padStart(2, '0'),
+}));
 
 export default function Projects({ onSelectProject }) {
   const [hovered, setHovered] = useState(null);
@@ -107,7 +120,7 @@ export default function Projects({ onSelectProject }) {
                     <span className="text-[#333]">/{project.total}</span>
                   </span>
                   <div className="min-w-0">
-                    <h3 className="project-title truncate">{project.title}</h3>
+                    <h3 className="project-title">{project.title}</h3>
                     <p className={`font-mono text-[0.7rem] tracking-wider mt-1 transition-all duration-300 ${hovered === project.id ? 'text-[#B8AAFA] drop-shadow-[0_0_8px_rgba(184,170,250,0.6)]' : 'text-[#555]'}`}>
                       {project.short}
                     </p>

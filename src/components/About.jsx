@@ -19,6 +19,11 @@ const competencies = [
     desc: 'End-to-end ML pipelines using Scikit-Learn, PCA, KNN, clustering, and supervised/unsupervised techniques.',
   },
   {
+    icon: '◇',
+    title: 'Natural Language Processing',
+    desc: 'LLM fine-tuning with LoRA, semantic search with FAISS, and retrieval-augmented generation.',
+  },
+  {
     icon: '◉',
     title: 'Android Development',
     desc: 'Native Android apps with Kotlin, Jetpack Compose, and modern architecture patterns.',
@@ -53,10 +58,10 @@ export default function About() {
             </motion.h2>
 
             <motion.p {...fadeUp(0.2)} className="text-[#aaa] text-base leading-relaxed mb-6">
-              I am an engineer passionate about synthesizing raw consumer data into actionable behavioral clusters and engineering AI components that solve real-world problems.
+              I study Computer Science and Engineering at Lovely Professional University. My projects use language models, embeddings, and vector search to summarize news, answer questions from articles, and group similar questions in live meetings.
             </motion.p>
             <motion.p {...fadeUp(0.25)} className="text-[#777] text-sm leading-relaxed mb-8">
-              With a strong foundation in Data Structures and Algorithms, I thrive on building efficient, scalable solutions — from unsupervised ML pipelines and NLP systems to polished Android applications.
+              I work with Python and Java and have experience with machine learning pipelines, FastAPI services, and Android development with Jetpack Compose.
             </motion.p>
 
             {/* Quick stats */}

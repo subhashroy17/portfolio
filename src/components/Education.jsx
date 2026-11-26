@@ -9,16 +9,25 @@ const fadeUp = (delay = 0) => ({
 
 const education = [
   {
-    degree: 'B.Tech in Computer Science',
+    degree: 'B.Tech in Computer Science and Engineering',
     institution: 'Lovely Professional University',
-    detail: 'CGPA: 7.96',
-    period: '2023 – 2027',
+    detail: 'CGPA: 7.97',
+    period: 'Aug 2023 – Present',
+    location: 'Phagwara, Punjab',
   },
   {
     degree: 'Intermediate (PCM)',
     institution: 'Narayana Group of Institutions',
     detail: 'Score: 96%',
-    period: '2021 – 2023',
+    period: 'Aug 2021 – Mar 2023',
+    location: 'Madhapur, Telangana',
+  },
+  {
+    degree: 'Matriculation',
+    institution: 'Narayana Group of Schools',
+    detail: 'Score: 99%',
+    period: 'Apr 2020 – Jun 2021',
+    location: 'Tirupati, Andhra Pradesh',
   },
 ];
 
@@ -26,7 +35,8 @@ const training = [
   {
     title: 'AI Powered NLP',
     org: 'AlgoTutor Academy',
-    detail: 'LLM Architectures · RAG Workflows · Prompt Engineering',
+    period: 'Jul 2025 – Aug 2025',
+    detail: 'Completed hands-on training in NLP and generative AI, covering LLM architectures, prompt engineering, text embeddings, RAG, and MCP servers. Built Python workflows for web scraping, preprocessing, vector search, and language model integration.',
     certLink: 'https://drive.google.com/file/d/1-cm47o4Jl1jZSevBSIcylb2QeaCcWTCf/view?usp=drivesdk',
   },
 ];
@@ -49,12 +59,13 @@ export default function Education() {
               Academic Background
             </motion.p>
             <div className="flex flex-col gap-8">
-              {education.map(({ degree, institution, detail, period }, i) => (
+              {education.map(({ degree, institution, detail, period, location }, i) => (
                 <motion.div key={degree} {...fadeUp(0.1 + i * 0.1)} className="edu-card">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1">
                     <div>
                       <h3 className="font-serif text-2xl font-bold text-[#ffffff] mb-1 drop-shadow-sm">{degree}</h3>
                       <p className="text-[#aaa] text-sm">{institution}</p>
+                      <p className="text-[#888] text-sm mt-1">{location}</p>
                     </div>
                     <div className="text-right flex-shrink-0">
                       <p className="font-mono text-[0.7rem] text-[#9D8DF1] font-semibold">{detail}</p>
@@ -71,7 +82,7 @@ export default function Education() {
             <motion.p {...fadeUp(0.3)} className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-[0.2em] uppercase mb-6">
               Key Training
             </motion.p>
-            {training.map(({ title, org, detail, certLink }) => (
+            {training.map(({ title, org, period, detail, certLink }) => (
               <motion.div
                 key={title}
                 {...fadeUp(0.35)}
@@ -85,7 +96,7 @@ export default function Education() {
                     </span>
                   </div>
                   <h3 className="font-serif text-3xl font-bold text-[#ffffff] mb-1 drop-shadow-md">{title}</h3>
-                  <p className="text-[#9D8DF1] text-sm font-medium mb-3">{org}</p>
+                  <p className="text-[#9D8DF1] text-sm font-medium mb-3">{org} · {period}</p>
                   <p className="text-[#777] text-sm mb-5">{detail}</p>
                   {certLink && (
                     <a

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const row1 = ['C++', 'Python', 'Java', 'Kotlin', 'DSA', 'GitHub', 'Jetpack Compose', 'Android Studio'];
-const row2 = ['Machine Learning', 'NLP', 'OOP', 'Scikit-Learn', 'LLM / RAG', 'Teamwork', 'SQL', 'DBMS'];
-const row3 = ['HTML & CSS', 'MySQL', 'Matplotlib', 'KNN', 'PCA', 'K-Means', 'Prompt Engineering', 'Algorithms'];
+const row1 = ['Python', 'Java', 'C++', 'Kotlin', 'Git', 'GitHub', 'Android Studio', 'MySQL', 'SQL', 'DBMS'];
+const row2 = ['Hugging Face', 'FastAPI', 'FAISS', 'Sentence Transformers', 'Scikit-Learn', 'Jetpack Compose', 'PyTorch', 'Streamlit', 'Matplotlib'];
+const row3 = ['Machine Learning', 'NLP', 'Data Structures & Algorithms', 'Android Development', 'OOP', 'LLM / RAG', 'Prompt Engineering', 'KNN', 'PCA', 'K-Means', 'HTML & CSS'];
+const softSkills = ['Problem-Solving', 'Teamwork', 'Quick Learning', 'Adaptability'];
 
 function MarqueeRow({ items, reverse = false, speed = 48 }) {
   const [paused, setPaused] = useState(false);
@@ -47,7 +48,7 @@ function MarqueeRow({ items, reverse = false, speed = 48 }) {
                 cursor: 'default',
                 userSelect: 'none',
                 transition: 'color 0.3s ease, text-shadow 0.3s ease',
-                color: isHovered ? '#9D8DF1' : 'rgba(245,245,240,0.09)',
+                color: isHovered ? '#9D8DF1' : 'rgba(245,245,240,0.52)',
                 textShadow: isHovered
                   ? '0 0 40px rgba(157,141,241,0.5), 0 0 80px rgba(157,141,241,0.2)'
                   : 'none',
@@ -89,7 +90,7 @@ export default function Skills() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-4 mb-16"
         >
-          <span className="label-tag">04 — Skills & Stack</span>
+          <span className="label-tag">03 — Skills & Stack</span>
           <span className="flex-1 h-px bg-[#2C2C2C]" />
         </motion.div>
 
@@ -98,6 +99,12 @@ export default function Skills() {
           <MarqueeRow items={row1} reverse={false} speed={50} />
           <MarqueeRow items={row2} reverse={true} speed={60} />
           <MarqueeRow items={row3} reverse={false} speed={55} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12">
+          <h3 className="label-tag mb-4">Soft Skills</h3>
+          <ul className="flex flex-wrap gap-2">
+            {softSkills.map(skill => <li key={skill} className="skill-pill">{skill}</li>)}
+          </ul>
         </div>
       </section>
     </>

@@ -103,7 +103,7 @@ export default function ProjectDetail({ project, onClose }) {
           {/* Footer action */}
           <motion.div {...fadeUp(0.25)} className="mt-10 pt-8 border-t border-[#2C2C2C] flex items-center justify-between">
             <a
-              href="https://github.com/subhashroy17"
+              href={project.github}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

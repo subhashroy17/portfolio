@@ -187,7 +187,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-[#bbb] text-base md:text-lg leading-relaxed mb-3 max-w-xs"
             >
-              Bridging the gap between complex data and intelligent user experiences.
+              I build AI applications for news summarization, search, and real-time collaboration.
             </motion.p>
 
             <motion.p
@@ -196,7 +196,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.95 }}
               className="text-[#666] text-sm leading-relaxed mb-8 max-w-xs"
             >
-              B.Tech candidate at Lovely Professional University · Focus on Machine Learning, NLP & Android Development.
+              B.Tech candidate at Lovely Professional University · Computer Science and Engineering.
             </motion.p>
 
             {/* Achievement micro-cards */}
@@ -207,8 +207,8 @@ export default function Hero() {
               className="flex flex-col gap-2.5 mb-8 max-w-xs"
             >
               {[
-                { icon: '🏆', title: 'Top 10 — Code-A-Hunt', sub: 'Out of 2,500+ participants' },
-                { icon: '⚡', title: '100+ DSA Problems', sub: 'LeetCode' },
+                { icon: '🏆', title: 'Top 10 — Code-A-Hunt', sub: 'Out of 2,500+ participants · Feb 2024' },
+                { icon: '⚡', title: '100+ DSA Problems', sub: 'LeetCode · Feb 2026' },
               ].map(({ icon, title, sub }) => (
                 <div key={title} className="flex items-center gap-3 px-4 py-3 border border-[#2C2C2C] rounded-sm bg-[#1f1f1f] hover:border-[#9D8DF1] transition-colors duration-300">
                   <span className="text-base">{icon}</span>

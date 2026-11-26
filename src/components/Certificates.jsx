@@ -11,25 +11,24 @@ const certs = [
   {
     org: 'NPTEL',
     title: 'Cloud Computing',
-    date: 'Available',
+    date: 'Apr 2025',
     link: 'https://drive.google.com/file/d/19R2cnVBr54FrjhNltFurL7hjuM2EgjV3/view?usp=drivesdk',
   },
   {
     org: 'APNA COLLEGE',
     title: 'Data Structures & Algorithms',
-    date: 'Available',
+    date: 'Dec 2024',
     link: 'https://drive.google.com/file/d/1459IZ-p6bWEbb1DrmGIufC87p7TVFve5/view?usp=drivesdk',
   },
   {
-    org: 'AI / ML',
-    title: 'Unrevealing Python Towards AI/ML',
-    date: 'Recent',
+    org: 'CSE Pathshala',
+    title: 'Unravelling Basics towards ML/AI',
+    date: 'Mar 2024',
     link: 'https://drive.google.com/file/d/1z4iKUwfIC2Dk7ruSHfwBQlEEVApOf1zu/view?usp=drivesdk',
   },
   {
     org: 'INFOSYS SPRINGBOARD',
     title: 'ChatGPT-4 Prompt Engineering, Generative AI and LLM',
-    date: 'Recent',
     link: 'https://drive.google.com/file/d/1ZIiH9n2twUh5ZMON56BlyFFtFyymB7JH/view?usp=drivesdk',
   },
 ];
@@ -68,23 +67,17 @@ export default function Certificates() {
                          transition-all duration-300 hover:border-[#9D8DF1]/50 hover:shadow-[0_0_30px_rgba(157,141,241,0.08)]
                          flex flex-col min-h-[210px]"
             >
-              {/* Content — shifts up slightly on hover to make room for button */}
-              <div className="flex-1 transition-transform duration-500 ease-out group-hover:-translate-y-3">
+              <div className="flex-1">
                 <p className="font-mono text-[0.65rem] text-[#9D8DF1] tracking-[0.22em] uppercase mb-4 font-semibold">
                   {cert.org}
                 </p>
                 <h3 className="font-serif text-xl font-bold text-[#ffffff] leading-snug drop-shadow-sm">
                   {cert.title}
                 </h3>
+                {cert.date && <p className="text-[#aaa] text-sm mt-2">{cert.date}</p>}
               </div>
 
-              {/* "View Certificate" button — hidden below, slides up on hover */}
-              <div
-                className="absolute bottom-0 left-0 right-0 px-7 pb-6
-                           translate-y-full opacity-0
-                           group-hover:translate-y-0 group-hover:opacity-100
-                           transition-all duration-500 ease-out"
-              >
+              <div className="mt-5">
                 <a
                   href={cert.link}
                   target="_blank"
