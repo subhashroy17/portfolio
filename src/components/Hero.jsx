@@ -136,12 +136,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="relative min-h-[18rem] overflow-hidden rounded-lg border-2 border-[#9D8DF1]/70 shadow-[0_0_24px_rgba(157,141,241,0.2)] sm:min-h-[22rem] lg:min-h-[27rem]"
+            className="relative aspect-square w-full self-center overflow-hidden rounded-lg border-2 border-[#9D8DF1]/70 shadow-[0_0_24px_rgba(157,141,241,0.2)]"
           >
             <img
               src="/port_pic.jpeg"
               alt="Subhash Verru"
-              className="absolute inset-0 h-full w-full object-cover object-top"
+              className="absolute inset-0 h-full w-full object-cover object-[center_55%]"
             />
           </motion.div>
         </div>

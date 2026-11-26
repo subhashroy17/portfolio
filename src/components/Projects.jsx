@@ -35,6 +35,22 @@ const projects = [
     category: 'Full-Stack / NLP',
   },
   {
+    id: 3,
+    title: 'Deepfake Detection Model',
+    short: 'Facial manipulation detection · MobileNetV2 · TensorFlow',
+    tags: ['Python', 'TensorFlow / Keras', 'MobileNetV2', 'OpenCV', 'Streamlit'],
+    github: 'https://github.com/subhashroy17/DeepFake_Detection_Model',
+    overview:
+      'A deep learning project that detects facial manipulation and tests whether the model generalizes to manipulation techniques it did not see during training.',
+    highlights: [
+      'Used MobileNetV2 transfer learning and OpenCV face detection to classify real and manipulated images.',
+      'Split data by source video and evaluated the model on both familiar techniques and a held-out manipulation family.',
+      'Built a Streamlit demo with image upload, face-crop previews, and model evaluation charts.',
+    ],
+    year: '2026',
+    category: 'Deep Learning / Computer Vision',
+  },
+  {
     id: 1,
     title: 'Advanced Customer Segmentation',
     short: 'Unsupervised ML pipeline · Scikit-Learn · PCA',
@@ -50,23 +66,6 @@ const projects = [
     ],
     year: '2025',
     category: 'Machine Learning',
-  },
-  {
-    id: 3,
-    title: 'Pollution Level Categorization',
-    short: 'KNN classification · Air quality sensor data',
-    tags: ['Python', 'KNN', 'Scikit-Learn', 'Matplotlib', 'Data Analysis'],
-    github: 'https://github.com/subhashroy17/Pollution-level-categorization-using-K-Nearest-Neighbors',
-    overview:
-      'A classification system that categorizes air quality levels—from Good to Hazardous—using K-Nearest Neighbour algorithms applied to multi-sensor environmental data.',
-    highlights: [
-      'KNN with optimized K selection via cross-validation',
-      'Multi-class air quality categorization (6 levels)',
-      'Feature engineering from raw sensor streams',
-      'Visualization dashboard for pollutant trends',
-    ],
-    year: '2025',
-    category: 'ML / Data Science',
   },
 ].map((project, index, allProjects) => ({
   ...project,
