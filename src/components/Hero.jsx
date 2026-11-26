@@ -10,11 +10,6 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
 };
 
-// The exact % from the top where the frame bottom edge sits
-// Everything below this line "breaks out" of the frame
-// Frame bottom edge sits at 57% — lower = more body breaking out for stronger 3D
-const BREAKOUT_PCT = 57;
-
 export default function Hero() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
@@ -47,47 +42,54 @@ export default function Hero() {
         className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-12"
         style={{ y, opacity }}
       >
-        {/* ─── 3-column grid: [Name] [Portrait] [Info] ─── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px_1fr] gap-6 xl:gap-10 items-center min-h-[calc(100vh-10rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(17rem,21rem)] gap-10 lg:gap-14 items-center min-h-[calc(100vh-10rem)]">
 
-          {/* ══ LEFT: LARGE NAME ══ */}
-          <div className="flex flex-col justify-center lg:pr-6">
+          <div className="min-w-0">
             {/* Identity label */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex items-center gap-3 mb-10"
+              className="flex items-center gap-3 mb-5 sm:mb-8"
             >
               <span className="w-5 h-px bg-[#9D8DF1]" />
               <span className="label-tag">AI & Software Engineer</span>
             </motion.div>
 
-            {/* Name — staggered line reveal */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="mb-10"
-            >
-              {['Subhash', 'Verru.'].map((word, i) => (
-                <div key={i} className="overflow-hidden leading-none">
-                  <motion.span
-                    variants={lineVariants}
-                    className="block font-serif font-black tracking-tight"
-                    style={{
-                      fontSize: 'clamp(4rem, 8.5vw, 8rem)',
-                      lineHeight: 1,
-                      color: i === 1 ? '#9D8DF1' : '#F5F5F0',
-                      fontStyle: i === 1 ? 'italic' : 'normal',
-                      fontFamily: "'Playfair Display', Georgia, serif",
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                </div>
-              ))}
-            </motion.div>
+            <div className="mb-6 flex items-center gap-3 sm:mb-8 sm:gap-6 lg:gap-8">
+              <motion.h1
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                aria-label="Subhash Verru"
+              >
+                {['Subhash', 'Verru.'].map((word, i) => (
+                  <span key={word} className="block overflow-hidden leading-none">
+                    <motion.span
+                      variants={lineVariants}
+                      className="block font-serif font-black tracking-tight"
+                      style={{
+                        fontSize: 'clamp(2.375rem, 7.4vw, 6.75rem)',
+                        lineHeight: 1,
+                        color: i === 1 ? '#9D8DF1' : '#F5F5F0',
+                        fontStyle: i === 1 ? 'italic' : 'normal',
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.h1>
+              <motion.img
+                src="/port_pic.jpeg"
+                alt="Subhash Verru"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                className="aspect-[4/5] w-[84px] shrink-0 rounded-lg border-2 border-[#9D8DF1]/70 object-cover object-top shadow-[0_0_24px_rgba(157,141,241,0.2)] sm:w-[112px] lg:w-[140px]"
+              />
+            </div>
 
             {/* Social Icons */}
             <motion.div
@@ -133,61 +135,15 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ══ CENTER: PORTRAIT ══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center items-center"
-          >
-            <div className="relative w-[264px] max-w-full aspect-[3/5]">
-
-              {/* Soft lavender glow behind the portrait */}
-              <div
-                className="absolute inset-x-4 top-8 bottom-8 opacity-50"
-                style={{ background: '#9D8DF1', filter: 'blur(50px)', zIndex: 0 }}
-              />
-
-              {/* Portrait Image Container */}
-              <div
-                className="absolute inset-0 overflow-hidden rounded-lg border-2 border-[rgba(157,141,241,0.8)] shadow-[0_0_40px_rgba(157,141,241,0.2)]"
-                style={{ zIndex: 2 }}
-              >
-                <img
-                  src="/port_pic.jpeg"
-                  alt="Subhash Verru"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              {/* Corner accent L-brackets */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#9D8DF1]" style={{ zIndex: 3 }} />
-              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#9D8DF1]" style={{ zIndex: 3 }} />
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#9D8DF1]" style={{ zIndex: 3 }} />
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#9D8DF1]" style={{ zIndex: 3 }} />
-
-              {/* Subtle shadow cast below the portrait */}
-              <div
-                className="absolute bottom-[-20px] left-8 right-8 pointer-events-none"
-                style={{
-                  height: '20px',
-                  background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%)',
-                  filter: 'blur(6px)',
-                  zIndex: 1,
-                }}
-              />
-            </div>
-          </motion.div>
-
           {/* ══ RIGHT: TAGLINE + ACHIEVEMENTS + CTAs ══ */}
-          <div className="flex flex-col justify-center lg:pl-6">
+          <div className="flex flex-col justify-center">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-[#bbb] text-base md:text-lg leading-relaxed mb-3 max-w-xs"
             >
-              I build AI applications for news summarization, search, and real-time collaboration.
+              I develop software with a focus on machine learning and natural language processing.
             </motion.p>
 
             <motion.p
